@@ -1,25 +1,63 @@
+import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 
 export default function Home() {
+	const [quote, setQuote] = useState(undefined);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		getRandomQuote();
+	}, []);
+
+	function saveQuote() {
+		localStorage.setItem(
+			`quote_${quote.id}`,
+			JSON.stringify({ content: quote.content, author: quote.author })
+		);
+	}
+
+	async function getRandomQuote() {
+		setLoading(true);
+
+		const response = await fetch('https://api.quotable.io/random');
+		const data = await response.json();
+
+		console.log(data);
+		setQuote({ id: data._id, content: data.content, author: data.author });
+
+		setLoading(false);
+	}
+
 	return (
-		<main className=' min-h-screen bg-yellow-200'>
+		<>
 			<Navbar />
+			<main className=' bg-yellow-50 flex items-center min-h-screen overflow-hidden'>
+				<div className=' -mt-36 px-14 container max-w-2xl py-10 text-center text-yellow-700 bg-yellow-100 border-2 border-yellow-700 shadow-lg'>
+					{loading ? (
+						<div>
+							<p className='text-xl'>Loading...</p>
+						</div>
+					) : (
+						<div>
+							<p className='text-2xl italic'>{quote.content}</p>
+							<p className=' text-md mt-4 font-semibold'>{quote.author}</p>
+						</div>
+					)}
 
-			<div className='mt-36 bg-green-50 container max-w-2xl px-8 py-6 text-yellow-700'>
-				<h2 className='text-5xl'>Test title</h2>
-				<p className='my-5 text-xl'>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem suscipit voluptatum
-					nihil iure fugiat quisquam quos odio ut alias! Provident voluptatem exercitationem
-					ipsum maxime saepe delectus officia hic, ut laudantium.
-				</p>
-				<p>- Author Name</p>
-
-				<div className='mt-10 text-center'>
-					<button className=' px-4 py-2 text-2xl bg-yellow-300 cursor-pointer'>
-						Next Quote
-					</button>
+					<div className='mt-8'>
+						<button
+							className=' hover:bg-yellow-400 active:scale-95 px-4 py-2 mr-2 text-xl transform bg-yellow-300 cursor-pointer'
+							onClick={() => getRandomQuote()}>
+							Next Quote
+						</button>
+						<button
+							className=' hover:bg-yellow-400 active:scale-95 px-4 py-2 ml-2 text-xl transform bg-yellow-300 cursor-pointer'
+							onClick={() => saveQuote()}>
+							Save Quote
+						</button>
+					</div>
 				</div>
-			</div>
-		</main>
+			</main>
+		</>
 	);
 }

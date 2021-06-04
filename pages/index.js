@@ -12,7 +12,7 @@ export default function Home() {
 	function saveQuote() {
 		localStorage.setItem(
 			`quote_${quote.id}`,
-			JSON.stringify({ content: quote.content, author: quote.author })
+			JSON.stringify({ id: quote.id, content: quote.content, author: quote.author })
 		);
 	}
 
@@ -22,7 +22,6 @@ export default function Home() {
 		const response = await fetch('https://api.quotable.io/random');
 		const data = await response.json();
 
-		console.log(data);
 		setQuote({ id: data._id, content: data.content, author: data.author });
 
 		setLoading(false);

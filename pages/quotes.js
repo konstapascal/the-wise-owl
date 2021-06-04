@@ -9,13 +9,19 @@ function Quotes() {
 		const quotesIds = Object.keys(localStorage).filter(entry => {
 			return entry.startsWith('quote_');
 		});
-
 		const quotesArr = quotesIds.map(id => {
 			return JSON.parse(localStorage.getItem(id));
 		});
 
 		setQuotes(quotesArr);
 	}, []);
+
+	function deleteQuote(id) {
+		const newQuotes = quotes.filter(quote => quote.id !== id);
+		setQuotes(newQuotes);
+
+		localStorage.removeItem(`quote_${id}`);
+	}
 
 	return (
 		<>
@@ -26,7 +32,15 @@ function Quotes() {
 						<p className='text-2xl text-center'>No quotes saved yet!</p>
 					) : (
 						quotes.map(quote => {
-							return <Quote content={quote.content} author={quote.author} />;
+							return (
+								<Quote
+									key={quote.id}
+									id={quote.id}
+									content={quote.content}
+									author={quote.author}
+									deleteQuote={deleteQuote}
+								/>
+							);
 						})
 					)}
 				</div>

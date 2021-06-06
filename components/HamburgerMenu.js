@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-function Navbar() {
+function HamburgerMenu() {
 	function toggleDropdown() {
 		document.querySelector('#dropdown').classList.toggle('hidden');
 	}
@@ -30,4 +30,4 @@ function Navbar() {
 		</div>
 	);
 }
-export default Navbar;
+export default HamburgerMenu;

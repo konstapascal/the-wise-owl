@@ -46,12 +46,12 @@ export default function Home() {
 					<div className='mt-8'>
 						<button
 							className=' hover:bg-yellow-400 active:scale-95 px-4 py-2 mr-2 text-xl transform bg-yellow-300 cursor-pointer'
-							onClick={() => getRandomQuote()}>
+							onClick={getRandomQuote}>
 							Next Quote
 						</button>
 						<button
 							className=' hover:bg-yellow-400 active:scale-95 px-4 py-2 ml-2 text-xl transform bg-yellow-300 cursor-pointer'
-							onClick={() => saveQuote()}>
+							onClick={saveQuote}>
 							Save Quote
 						</button>
 					</div>

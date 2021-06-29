@@ -6,7 +6,7 @@ function HamburgerMenu() {
 	}
 
 	return (
-		<div className='lg:hidden relative'>
+		<div className='md:hidden relative'>
 			{/* HAMBURGER MENU */}
 			<button onClick={toggleDropdown} className=' flex items-center h-full'>
 				<img src='/bars-solid.svg' width={25} height={25} />
@@ -15,14 +15,18 @@ function HamburgerMenu() {
 			{/* DROPDOWN MENU */}
 			<div
 				id='dropdown'
-				className=' absolute right-0 hidden w-48 text-yellow-700 bg-yellow-100 border-2 border-yellow-700'>
+				className=' absolute right-0 hidden w-64 overflow-hidden text-center text-yellow-700 bg-yellow-100 border-2 border-yellow-700 rounded-md shadow-lg'>
 				<Link href={`/`}>
-					<a className=' active:scale-95 hover:bg-yellow-300 block px-4 py-2 text-xl font-semibold cursor-pointer'>
+					<a
+						onClick={toggleDropdown}
+						className=' hover:bg-yellow-200 block py-4 text-xl font-semibold cursor-pointer'>
 						Generate Quotes
 					</a>
 				</Link>
 				<Link href={`/quotes`}>
-					<a className=' active:scale-95 hover:bg-yellow-300 block px-4 py-2 text-xl font-semibold cursor-pointer'>
+					<a
+						className=' hover:bg-yellow-200 block py-4 text-xl font-semibold cursor-pointer'
+						onClick={toggleDropdown}>
 						Saved Quotes
 					</a>
 				</Link>

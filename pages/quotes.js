@@ -25,11 +25,11 @@ function Quotes() {
 
 	return (
 		<>
-			<Navbar />
-			<main className='py-52 bg-yellow-50 min-h-screen'>
-				<div className=' px-14 container max-w-4xl py-10 text-yellow-700 bg-yellow-100 border-2 border-yellow-700 shadow-lg'>
+			<div className=' bg-yellow-50 min-h-screen'>
+				<Navbar />
+				<main className=' my-14 md:px-24 md:py-16 container max-w-4xl px-6 py-10 text-yellow-700 bg-yellow-100 shadow-lg'>
 					{quotes.length === 0 ? (
-						<p className='text-2xl text-center'>No quotes saved yet!</p>
+						<p className=' text-2xl text-center'>No quotes saved yet!</p>
 					) : (
 						quotes.map(quote => {
 							return (
@@ -43,8 +43,8 @@ function Quotes() {
 							);
 						})
 					)}
-				</div>
-			</main>
+				</main>
+			</div>
 		</>
 	);
 }

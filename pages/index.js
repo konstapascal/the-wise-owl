@@ -29,34 +29,33 @@ export default function Home() {
 
 	return (
 		<>
-			<Navbar />
-			<main className=' bg-yellow-50 flex items-center min-h-screen overflow-hidden'>
-				<div className=' -mt-36 px-14 container max-w-2xl py-10 text-center text-yellow-700 bg-yellow-100 border-2 border-yellow-700 shadow-lg'>
+			<div className=' bg-yellow-50 min-h-screen'>
+				<Navbar />
+				<main className=' px-14 mt-14 container max-w-3xl py-10 text-center text-yellow-700 bg-yellow-100 rounded-md shadow-lg'>
 					{loading ? (
 						<div>
 							<p className='text-xl'>Loading...</p>
 						</div>
 					) : (
 						<div>
-							<p className='text-2xl italic'>{quote.content}</p>
-							<p className=' text-md mt-4 font-semibold'>{quote.author}</p>
+							<p className='text-xl italic font-semibold'>{`"${quote.content}"`}</p>
+							<p className=' text-md opacity-90 mt-4 font-semibold'>{`- ${quote.author}`}</p>
 						</div>
 					)}
-
 					<div className='mt-8'>
 						<button
-							className=' hover:bg-yellow-400 active:scale-95 px-4 py-2 mr-2 text-xl transform bg-yellow-300 cursor-pointer'
+							className=' hover:bg-yellow-300 active:scale-95 text-md px-4 py-2 mr-2 font-semibold transform bg-yellow-200 rounded-md cursor-pointer'
 							onClick={getRandomQuote}>
 							Next Quote
 						</button>
 						<button
-							className=' hover:bg-yellow-400 active:scale-95 px-4 py-2 ml-2 text-xl transform bg-yellow-300 cursor-pointer'
+							className=' hover:bg-yellow-300 active:scale-95 text-md px-4 py-2 ml-2 font-semibold transform bg-yellow-200 rounded-md cursor-pointer'
 							onClick={saveQuote}>
 							Save Quote
 						</button>
 					</div>
-				</div>
-			</main>
+				</main>
+			</div>
 		</>
 	);
 }

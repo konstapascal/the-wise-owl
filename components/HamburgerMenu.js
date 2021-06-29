@@ -9,7 +9,7 @@ function HamburgerMenu() {
 		<div className='lg:hidden relative'>
 			{/* HAMBURGER MENU */}
 			<button onClick={toggleDropdown} className=' flex items-center h-full'>
-				<img src='/bars-solid.svg' width={30} height={30} />
+				<img src='/bars-solid.svg' width={25} height={25} />
 			</button>
 
 			{/* DROPDOWN MENU */}

@@ -31,7 +31,7 @@ export default function Home() {
 		<>
 			<div className=' bg-yellow-50 min-h-screen'>
 				<Navbar />
-				<main className=' px-14 mt-14 container max-w-3xl py-10 text-center text-yellow-700 bg-yellow-100 rounded-md shadow-lg'>
+				<main className=' px-14 my-14 md:my-20 lg:my-28 container max-w-3xl py-10 text-center text-yellow-700 bg-yellow-100 rounded-md shadow-lg'>
 					{loading ? (
 						<div>
 							<p className='text-xl'>Loading...</p>

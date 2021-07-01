@@ -30,19 +30,8 @@ export default function Home() {
 	return (
 		<>
 			<Navbar />
-			<div className=' relative flex items-center min-h-screen -mt-24 overflow-hidden'>
-				{/* BG IMAGE AND FILTER */}
-				<div className=' absolute inset-0'>
-					<div className='opacity-10 absolute w-full h-full bg-[#B45309]'></div>
-					<img
-						className='object-cover object-center w-full h-full'
-						src='/forest-6.jpg'
-						alt='forest background'
-					/>
-				</div>
-
-				{/* MAIN CONTENT, QUOTE GENERATOR */}
-				<main className=' md:px-14 -mt-36 container z-20 w-11/12 max-w-3xl px-4 py-10 text-center text-yellow-700 bg-yellow-100 rounded-md shadow-2xl'>
+			<div className='main-wrapper min-h-screen -mt-24 overflow-hidden'>
+				<main className=' md:px-16 container w-11/12 max-w-3xl px-4 py-12 mt-64 mb-32 text-center text-yellow-700 bg-yellow-100 rounded-md shadow-2xl'>
 					{loading ? (
 						<div>
 							<p className='text-xl'>Loading...</p>

@@ -24,26 +24,28 @@ function Quotes() {
 	}
 
 	return (
-		<div className=' min-h-screen'>
+		<>
 			<Navbar />
-			<main className=' my-14 md:px-28 md:py-20 container max-w-4xl px-6 py-10 text-yellow-700 bg-yellow-100 rounded-md shadow-2xl'>
-				{quotes.length === 0 ? (
-					<p className=' text-2xl text-center'>No quotes saved yet!</p>
-				) : (
-					quotes.map(quote => {
-						return (
-							<Quote
-								key={quote.id}
-								id={quote.id}
-								content={quote.content}
-								author={quote.author}
-								deleteQuote={deleteQuote}
-							/>
-						);
-					})
-				)}
-			</main>
-		</div>
+			<div className='main-wrapper relative min-h-screen -mt-24 overflow-hidden bg-fixed'>
+				<main className=' md:px-24 md:py-16 mt-44 container w-11/12 max-w-4xl px-6 py-10 mb-20 text-yellow-700 bg-yellow-100 rounded-md shadow-2xl'>
+					{quotes.length === 0 ? (
+						<p className=' text-2xl text-center'>No quotes saved yet!</p>
+					) : (
+						quotes.map(quote => {
+							return (
+								<Quote
+									key={quote.id}
+									id={quote.id}
+									content={quote.content}
+									author={quote.author}
+									deleteQuote={deleteQuote}
+								/>
+							);
+						})
+					)}
+				</main>
+			</div>
+		</>
 	);
 }
 export default Quotes;

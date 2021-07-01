@@ -7,3 +7,7 @@ body {
 #logo {
 	font-family: 'Dancing Script', cursive;
 }
+
+.main-wrapper {
+	background-image: url('/forest-6.jpg');
+}

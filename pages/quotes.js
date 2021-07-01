@@ -26,7 +26,7 @@ function Quotes() {
 	return (
 		<div className=' min-h-screen'>
 			<Navbar />
-			<main className=' my-14 md:px-24 md:py-16 container max-w-4xl px-6 py-10 text-yellow-700 bg-yellow-100 shadow-lg'>
+			<main className=' my-14 md:px-28 md:py-20 container max-w-4xl px-6 py-10 text-yellow-700 bg-yellow-100 rounded-md shadow-2xl'>
 				{quotes.length === 0 ? (
 					<p className=' text-2xl text-center'>No quotes saved yet!</p>
 				) : (

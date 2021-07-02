@@ -1,7 +1,7 @@
 function Quote({ id, content, author, deleteQuote }) {
 	return (
 		<>
-			<div className=' first:mt-0 last:mb-0 flex flex-col my-10'>
+			<div className=' flex flex-col my-10'>
 				<div className='mb-6 font-semibold text-center'>
 					<p className=' mb-4 text-xl italic'>{`"${content}"`}</p>
 					<p className='opacity-90'> {`- ${author}`}</p>

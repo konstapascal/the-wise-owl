@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 
@@ -29,6 +30,10 @@ export default function Home() {
 
 	return (
 		<>
+			<Head>
+				<title>the-wise-owl</title>
+				<link rel='icon' href='/favicon.png' />
+			</Head>
 			<Navbar />
 			<div className='main-wrapper min-h-screen overflow-hidden'>
 				<main className=' md:px-16 container w-11/12 max-w-3xl px-4 py-12 mt-64 mb-32 text-center text-yellow-700 bg-yellow-100 rounded-md shadow-2xl'>

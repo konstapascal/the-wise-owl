@@ -6,21 +6,17 @@ function Quotes() {
 	const [quotes, setQuotes] = useState([]);
 
 	useEffect(() => {
-		const quotesIds = Object.keys(localStorage).filter(entry => {
-			return entry.startsWith('quote_');
-		});
-		const quotesArr = quotesIds.map(id => {
-			return JSON.parse(localStorage.getItem(id));
-		});
+		if (!localStorage.getItem('quotes')) localStorage.setItem('quotes', JSON.stringify([]));
 
-		setQuotes(quotesArr);
+		const initialQuotes = JSON.parse(localStorage.getItem('quotes'));
+		setQuotes(initialQuotes);
 	}, []);
 
-	function deleteQuote(id) {
-		const newQuotes = quotes.filter(quote => quote.id !== id);
-		setQuotes(newQuotes);
+	function deleteQuote(quote) {
+		const filteredQuotes = quotes.filter(entry => entry.quote !== quote);
 
-		localStorage.removeItem(`quote_${id}`);
+		localStorage.setItem('quotes', JSON.stringify(filteredQuotes));
+		setQuotes(filteredQuotes);
 	}
 
 	return (
@@ -34,9 +30,8 @@ function Quotes() {
 						quotes.map(quote => {
 							return (
 								<Quote
-									key={quote.id}
-									id={quote.id}
-									content={quote.content}
+									key={quote.quote}
+									quote={quote.quote}
 									author={quote.author}
 									deleteQuote={deleteQuote}
 								/>
